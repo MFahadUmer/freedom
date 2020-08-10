@@ -1,5 +1,4 @@
 class FollowingsController < ApplicationController
-
   def create
     @following = current_user.followings.build(followed_id: params[:followed_id])
     puts "curehjsd #{current_user.id}"
@@ -16,12 +15,11 @@ class FollowingsController < ApplicationController
   def destroy
     @following = current_user.followings.find_by(followed_id: params[:followed_id])
     if @following.destroy
-      flash[:notice] = "Unfollow successfull"
+      flash[:notice] = 'Unfollow successfull'
     else
-      flash[:alert] = "Unfollow unsuccessfull"
+      flash[:alert] = 'Unfollow unsuccessfull'
     end
     redirect_to users_path
-
   end
 
   private

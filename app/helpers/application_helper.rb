@@ -1,3 +1,4 @@
+# rubocop:disable Layout/LineLength
 module ApplicationHelper
   def like_or_dislike(opinion)
     @like = current_user.likes.find_by(opinion_id: opinion)
@@ -8,3 +9,4 @@ module ApplicationHelper
     end
   end
 end
+# rubocop:enable Layout/LineLength
