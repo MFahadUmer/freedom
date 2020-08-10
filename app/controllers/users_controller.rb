@@ -20,7 +20,6 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to users_path
     else
-      flash[:alert] = 'Unable to signup. Please try again'
       render 'new'
     end
   end
