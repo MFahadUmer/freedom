@@ -18,11 +18,13 @@
 .main-body {
   display: grid;
   grid-template-columns: 1fr 5fr;
+
   .left-sidebar {
     background-color: #213346;
     height: 100vh;
   }
 }
+
 .bg-purple,
 .text-purple {
   color: #5640a3;
@@ -53,7 +55,7 @@
   background-color: #51a5e6;
 }
 
-.form-size{
+.form-size {
   width: 500px;
 }
 
@@ -71,6 +73,7 @@
   display: grid;
   grid-template-columns: 3fr 1fr;
   background-color: #f5f6f8;
+
   .content-center {
     border-right: 1px solid black;
   }
@@ -90,12 +93,12 @@
 }
 
 .content-nav:hover {
-  color: #2E2F30;
+  color: #2e2f30;
   text-decoration: none;
 }
 
 .active-link {
-  color: #666666;
+  color: #666;
   font-weight: bold;
   border-bottom: #51a5e6 solid 3px;
   padding-bottom: 16px;
@@ -144,7 +147,7 @@
   height: 75px;
 }
 
-.all-posts{
+.all-posts {
   display: grid;
   grid-template-columns: 1fr 11fr;
 }
