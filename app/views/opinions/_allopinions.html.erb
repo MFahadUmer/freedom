@@ -1,0 +1,13 @@
+<div class="content-all-post p-3">
+  <% @opinions.ordered_by_created_at.each do |c| %>
+    <div class="all-posts bg-white p-3 rounded border-bottom">
+      <div class="post-image">
+        <%= link_to image_tag(c.user.profile_image,  class: 'w-100 h-100 rounded'), user_path(c.id) %>
+      </div>
+      <div class="post-details pl-4 d-flex flex-column">
+        <%= link_to  c.user.fullname, user_path(c.user) %>
+        <p class="pt-2"><%= c.opinion %><span class="likes float-right"><%= like_or_dislike(c.id) %></span></p>
+      </div>
+    </div>
+  <% end %>
+</div>

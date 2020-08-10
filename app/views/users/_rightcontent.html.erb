@@ -1,0 +1,24 @@
+<%#= link_to 'Follow', followings_path(:user_id => 1), method: :post, class: 'btn btn-success' %>
+<div class="who-to-follow p-3">
+  <h2 class="border-bottom">Who to follow</h2>
+    <% @follow_user.each do |x| %>
+      <% if x.id != current_user.id %>
+      <div class="user-followed-by-grid p-2">
+    <div class="user-followed-by-image">
+      <%= link_to image_tag(x.profile_image,  class: 'w-100 h-100 rounded'), user_path(x.id) %>
+    </div>
+    <div class="d-flex justify-content-between border-bottom align-items-center">
+
+      <h4><%= link_to x.username, user_path(x.id) %></h4>
+      <% if x.follower?(current_user, x.id) %>
+        <%=link_to "<i class='text-warning fas fa-minus-circle fa-2x'></i>".html_safe, following_path(followed_id: x.id), method: :delete %>
+      <% else %>
+        <% if x.id != current_user.id %>
+          <%=link_to "<i class='text-success fas fa-plus-circle fa-2x'></i>".html_safe, followings_path(followed_id: x.id), method: :post %>
+        <%end %>
+      <% end %>
+    </div>
+      </div>
+<% end %>
+<% end %>
+</div>

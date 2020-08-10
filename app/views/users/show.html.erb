@@ -1,0 +1,23 @@
+<div class="main-body">
+  <div class="left-sidebar sticky-top">
+    <%= render 'leftsidebar' %>
+  </div>
+  <div class="main-section">
+    <div class="top-navbar sticky-top p-2 d-flex justify-content-between">
+      <%= render 'topnavbar' %>
+    </div>
+    <div class="content">
+      <div class="content-center">
+        <div class="cover-image">
+          <%= link_to image_tag(@user.cover_image,  class: 'w-100 h-100'), user_path(@user.id) %>
+        </div>
+        <%= render 'contentcenter' %>
+        <%= render 'opinions/useropinions' %>
+
+      </div>
+      <div>
+        <%= render 'showrightcontent' %>
+      </div>
+    </div>
+  </div>
+</div>

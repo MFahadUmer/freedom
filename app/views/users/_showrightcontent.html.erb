@@ -1,0 +1,53 @@
+<div class="user_profile p-3 border-bottom">
+  <div class="profile_image d-flex justify-content-center align-items-center">
+    <% if @user.id != current_user.id %>
+      <% if @user.follower?(current_user, @user.id) %>
+        <%=link_to "<i class='text-warning fas fa-minus-circle fa-3x'></i>".html_safe, following_path(followed_id: @user.id), method: :delete %>
+        <%#=link_to "<i class='text-danger fas fa-minus-circle fa-3x'></i>".html_safe, edit_following_path(@used.id), method: :get %>
+      <% else %>
+        <%=link_to "<i class='text-success fas fa-plus-circle fa-3x'></i>".html_safe, followings_path(followed_id: @user.id), method: :post %>
+    <% end %>
+      <% end %>
+    <div class="user-profile-image pl-3">
+      <%= link_to image_tag(@user.profile_image,  class: 'w-100 h-100 rounded-circle'), user_path(@user.id) %>
+    </div>
+  </div>
+  <div class="d-flex flex-column border-bottom align-items-center">
+    <h3><%= @user.fullname %></h3>
+    <p><%= @user.username %></p>
+  </div>
+  <div class="user-details d-flex justify-content-between p-3 border-bottom">
+    <div class="d-flex justify-content-center flex-column align-items-center border-right pr-4 user-opinions">
+      <h4><%= @user.opinions.count %> </h4>
+      <p>Opinions</p>
+    </div>
+    <div class="d-flex justify-content-center flex-column align-items-center border-right pr-4 user-followers">
+      <h4><%= @user.followers.count %></h4>
+      <p>Followers</p>
+    </div>
+    <div class="d-flex justify-content-center flex-column align-items-center user-followers">
+      <h4><%= @user.followings.count %></h4>
+      <p>Followings</p>
+    </div>
+  </div>
+  <div class="user-followed-by p-3">
+    <h3 class="border-bottom">Followed By</h3>
+    <% @user.follower_user.each do |x|  %>
+      <div class="user-followed-by-grid border-bottom p-2">
+        <div class="user-followed-by-image">
+          <%= link_to image_tag(x.profile_image,  class: 'w-100 h-100 rounded'), user_path(x.id) %>
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
+          <h4><%= x.username %></h4>
+          <% if x.follower?(current_user, x.id) %>
+            <%=link_to "<i class='text-warning fas fa-minus-circle fa-2x'></i>".html_safe, following_path(followed_id: x.id), method: :delete %>
+          <% else %>
+            <% if x.id != current_user.id %>
+              <%=link_to "<i class='text-success fas fa-plus-circle fa-2x'></i>".html_safe, followings_path(followed_id: x.id), method: :post %>
+              <%end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="profile d-flex p-3 border-bottom">
+  <div class="profile-image">
+    <%= link_to image_tag(current_user.profile_image,  class: 'w-100 h-100 rounded'), user_path(current_user) %>
+  </div>
+  <div class="pl-3 pt-4">
+    <%=link_to current_user.fullname, user_path(current_user.id), class: 'text-white font-weight-bold' %>
+  </div>
+</div>
+<div class="following-details border-bottom">
+  <div class="p-2 d-flex align-items-center flex-column">
+    <h5 class="text-white font-weight-bold"><%=current_user.following_user.count %></h5>
+    <p class="text-white">Following</p>
+  </div>
+  <div class="p-2 d-flex align-items-center flex-column">
+    <h5 class="text-white font-weight-bold"><%=current_user.follower_user.count %></h5>
+    <p class="text-white">Follower</p>
+  </div>
+</div>
+<div class="links d-flex flex-column">
+  <div class="nav w-100 d-flex flex-column justify-content-center align-items-center">
+    <%= link_to "Home", users_path, class: 'navbar navbar-light text-light' %></div>
+  <div class="nav w-100 d-flex flex-column justify-content-center align-items-center">
+    <%= link_to "Opinions", user_path(current_user.id), class: 'navbar navbar-light text-light' %></div>
+  <div class="nav w-100 d-flex flex-column justify-content-center align-items-center">
+    <%= link_to "Profile", edit_user_path(current_user.id), class: 'navbar navbar-light text-light' %></div>
+</div>
