@@ -13,15 +13,6 @@ class User < ApplicationRecord
 
   validates :fullname, presence: true, length: { minimum: 6, maximum: 50 }
   validates :username, presence: true, uniqueness: true, length: { minimum: 6, maximum: 50 }
-  # validates :profile_image, attached: true
-  # validates :profile_image, file_content_type: { allow: ['image/jpeg', 'image/png'] }
-  # validates :cover_image, attached: true
-  #
-  # def correct_image_type
-  #   if :profile_image.attached? && !profile_image.content_type.in?(%w(image/jpeg image/jpg image/png))
-  #     errors.add(:profile_image, 'Must be JPEG or PNG')
-  #   end
-  # end
 
   def follower?(current_user, user)
     current_user.following_user.ids.include?(user)

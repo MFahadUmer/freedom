@@ -1,10 +1,10 @@
 require 'rails_helper'
 RSpec.describe User, type: :model do
-  let(:user) { User.create(username: 'James', fullname: 'james james') }
+  let(:user) { User.create(id: 1, username: 'James', fullname: 'james james') }
   let(:user2) { User.create(id: 2, username: 'James', fullname: 'james james') }
-  let(:post) { user.opinions.build(id: 1, opinion: 'its a great opinion').save }
-  let(:like) { user.likes.build(opinion_id: 1).save }
-  let(:following) { user.followings.build(followed_id: 2).save }
+  let(:following) { user.followings.build(followed_id: user2.id) }
+  let(:post) { user.opinions.build(id: 1, opinion: 'its a great opinion') }
+  let(:like) { user.likes.build(opinion_id: 1) }
   it 'should be invalid if name is less than 6 characters' do
     user.username = 'na' * 2
     expect(user).to_not be_valid
@@ -38,5 +38,12 @@ RSpec.describe User, type: :model do
     user2
     following
     expect(user.followings.first.followed_id).to eql(2)
+  end
+
+  it 'should be valid if user1 is follwoing user2' do
+    user
+    user2
+    following
+    expect(user.follower?(user, user2.id)).to eql(false)
   end
 end

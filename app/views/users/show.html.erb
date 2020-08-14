@@ -9,7 +9,7 @@
     <div class="content">
       <div class="content-center">
         <div class="cover-image">
-          <%= link_to image_tag(@user.cover_image,  class: 'w-100 h-100'), user_path(@user.id) %>
+          <%= image_check(@user.cover_image) %>
         </div>
         <%= render 'contentcenter' %>
         <%= render 'opinions/useropinions' %>

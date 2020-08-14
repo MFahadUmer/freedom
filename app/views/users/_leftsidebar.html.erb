@@ -1,6 +1,6 @@
 <div class="profile d-flex p-3 border-bottom">
   <div class="profile-image">
-    <%= link_to image_tag(current_user.profile_image,  class: 'w-100 h-100 rounded'), user_path(current_user) %>
+    <%= image_check(current_user.profile_image) %>
   </div>
   <div class="pl-3 pt-4">
     <%=link_to current_user.fullname, user_path(current_user.id), class: 'text-white font-weight-bold' %>

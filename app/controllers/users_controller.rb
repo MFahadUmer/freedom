@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
   before_action :authenticate, only: %i[index show]
   def index
-    @users = User.all
-    @opinions = Opinion.all
-    @follow_user = @users.where(id: (@users.ids - current_user.following_user.ids)).order(created_at: :desc)
+    @users = User.all.includes(:likes, :opinions)
+    @opinions = Opinion.all.includes(:likes, user: [:likes])
+    @follow_user = User.where(id: (@users.ids - current_user.following_user.ids)).order(created_at: :desc)
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.includes(:opinions, opinions: :likes).find(params[:id])
   end
 
   def new

@@ -12,6 +12,7 @@ end
 group :production do
   gem 'pg'
 end
+gem 'hirb', '~>0.7.0'
 # use boostrap for styles
 gem 'bootstrap', '~> 4.0'
 gem 'jquery-rails'
