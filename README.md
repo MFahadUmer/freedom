@@ -4,7 +4,7 @@
 
 
 ## Live Preview
-## [Freedom](https://protected-beyond-45071.herokuapp.com)
+## [Freedom](https://ancient-refuge-09655.herokuapp.com/)
 
 ## Built With
 
