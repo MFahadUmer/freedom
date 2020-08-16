@@ -1,0 +1,9 @@
+<div class="user-followed-by-grid p-2">
+  <div class="user-followed-by-image">
+    <%= image_check(user.profile_image) %>
+  </div>
+  <div class="d-flex justify-content-between border-bottom align-items-center">
+    <h4><%= link_to user.username, user_path(user.id) %></h4>
+    <%= follower_links(current_user, user) %>
+  </div>
+</div>

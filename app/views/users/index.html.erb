@@ -1,0 +1,22 @@
+<div class="main-body">
+  <div class="left-sidebar sticky-top">
+    <%= render 'leftsidebar' %>
+  </div>
+  <div class="main-section d-flex flex-column">
+    <div class="top-navbar sticky-top p-2 d-flex justify-content-between">
+      <%= render 'topnavbar' %>
+    </div>
+    <%= render 'layouts/flash' %>
+    <div class="content">
+      <div class="content-center">
+        <%= render 'contentcenter' %>
+        <%= render 'opinions/opinion' %>
+        <%= render 'opinions/allopinions' %>
+      </div>
+      <div>
+        <%= render 'rightcontent' %>
+      </div>
+
+    </div>
+  </div>
+</div>

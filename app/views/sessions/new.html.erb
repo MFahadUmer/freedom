@@ -1,0 +1,28 @@
+<%= render 'users/signupdetails' %>
+<div class="d-flex justify-content-center">
+  <div class="form-size">
+    <div class="notice">
+      <% if flash[:notice] %>
+        <div class="notice w-100 bg-success d-flex justify-content-center text-white display-5"><p class="h2"><%= flash[:notice] %></p></div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="notice w-100 bg-danger d-flex justify-content-center text-white display-5"><p class="h2"><%= flash[:alert] %></p></div>
+      <% end %>
+    </div>
+    <%= form_tag(sessions_path, method: "post") do %>
+      <div class="form-group">
+        <%= label_tag(:username, 'Username') %>
+        <%= text_field_tag :username, "", class: 'form-control', autofocus: "true" %>
+      </div>
+      <div class="form-group">
+        <%= submit_tag('Login', class: "btn btn-success form-control") %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="d-flex justify-content-center">
+  <div class="form-group">
+    <p class="text-muted">Don't have account? </p>
+    <%= link_to 'Sign up', new_user_path, class: "btn btn-primary bg-purple form-control" %>
+  </div>
+</div>
