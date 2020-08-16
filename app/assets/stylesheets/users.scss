@@ -1,0 +1,124 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.scss.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.main-body {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+
+  .left-sidebar {
+    background-color: #213346;
+    height: 100vh;
+  }
+}
+
+.bg-purple,
+.text-purple {
+  color: #5640a3;
+}
+
+.profile_image {
+  height: 175px;
+}
+
+.user-followed-by-image {
+  width: 50px;
+  height: 50px;
+}
+
+.user-followed-by-grid {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-gap: 2px;
+}
+
+.user-profile-image {
+  width: 150px;
+  height: 150px;
+}
+
+.top-navbar {
+  height: 60px;
+  background-color: #51a5e6;
+}
+
+.form-size {
+  width: 500px;
+}
+
+.alert-color {
+  padding-top: 5px;
+  background-color: #e05b5b;
+}
+
+.notice-color {
+  padding-top: 5px;
+  background-color: #80d780;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  background-color: #f5f6f8;
+
+  .content-center {
+    border-right: 1px solid black;
+  }
+}
+
+.bg-light2 {
+  background-color: #f5f6f8;
+}
+
+.flash {
+  height: 40px;
+}
+
+.content-nav {
+  text-decoration: none;
+  color: #9c9c9c;
+}
+
+.content-nav:hover {
+  color: #2e2f30;
+  text-decoration: none;
+}
+
+.active-link {
+  color: #666;
+  font-weight: bold;
+  border-bottom: #51a5e6 solid 3px;
+  padding-bottom: 16px;
+}
+
+.profile {
+  height: 125px;
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+}
+
+.following-details {
+  height: 70px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.navbar {
+  text-decoration: none;
+}
+
+.nav:hover {
+  background-color: #51a5e6;
+}
+
+.account-details > a {
+  text-decoration: none;
+  color: black;
+}
+
+.cover-image {
+  width: 100%;
+  height: 300px;
+}

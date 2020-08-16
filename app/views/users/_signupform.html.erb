@@ -1,0 +1,25 @@
+<%= form_for(@user) do |x| %>
+  <% @user.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+
+  <div class="form-group">
+    <%= x.label :username, 'Username' %>
+    <%= x.text_field :username, class: "form-control", autofocus: "true" %>
+  </div>
+  <div class="form-group">
+    <%= x.label :fullname, 'Fullname' %>
+    <%= x.text_field :fullname, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= x.label :profile_image, 'Profile image' %>
+    <%= x.file_field :profile_image, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= x.label :cover_image, 'Cover image' %>
+    <%= x.file_field :cover_image, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= x.submit 'Free Yourself', class: "btn btn-success form-control" %>
+  </div>
+<% end %>

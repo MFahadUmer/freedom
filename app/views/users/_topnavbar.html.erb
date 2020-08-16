@@ -1,0 +1,10 @@
+<div class="logo pl-2">
+  <%= link_to "<img style='width: 40px' src='https://www.freelogodesign.org/file/app/client/thumb/86afaff2-bbc1-445c-a4d9-895d1e8dae4c_200x200.png?1596763292744'>".html_safe, users_path %>
+</div>
+<div class="account-details pt-2 pr-3">
+  <%= link_to "<i class='pl-3 fas fa-pencil-alt'></i>".html_safe, users_path %>
+  <%= link_to "<i class='pl-3 fas fa-envelope'></i>".html_safe, users_path %>
+  <%= link_to "<i class='pl-3 fas fa-search'></i>".html_safe, users_path %>
+  <%= link_to "<i class='pl-3 fas fa-cog'></i>".html_safe, edit_user_path(current_user.id) %>
+  <%= link_to "<i class='pl-3 fas fa-sign-out-alt'></i>".html_safe, session_path(:current_user), method: :delete %>
+</div>
